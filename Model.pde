@@ -4,6 +4,8 @@ public class Model {
     private State state;
     //private Phase phase = new Phase();
     private KeyStatus keyStatus = new KeyStatus();
+    private TimerModel timerModel = new TimerModel();
+    private TextModel textModel = new TextModel();
 
     Model(){
         state = new TitleState();
@@ -19,7 +21,7 @@ public class Model {
     public void stateExecute(){
         state.execute();
     }
-
+      
     //フェーズ
     // public Phase getPhase(){
     //     return phase;
@@ -27,6 +29,22 @@ public class Model {
     // public void setPhase(){
 
     // }
+
+    public int getTime(){
+        return timerModel.getTime();
+    }
+
+    public void loadText(){
+        textModel.loadText();
+    }
+
+    public int getLength(){
+        return textModel.getLength();
+    }
+    
+    public String getText(int index) {
+        return textModel.getText(index);
+    }
 
     //デバッグモード
     public boolean getDebugMode(){

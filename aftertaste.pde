@@ -2,23 +2,30 @@
 * 環境変数
 */
 
-JSONObject json;
+// JSONObject json;
 
 //ユーザ環境で使えるフォント一覧取得
 String[] fontList = PFont.list();
 Model contentModel;
+Controller contentController;
+
+
 
 void setup() {
   size(1600, 900);
   //printArray(fontList);
 
   //設定ファイルが必要であればここから読みこむ
-  json = loadJSONObject("config.json");
-  println(json.getString("id"));
-  json.setString("id", "oguri");
-  saveJSONObject(json, "config.json");
+  // json = loadJSONObject("config.json");
+  // println(json.getString("id"));
+  // json.setString("id", "oguri");
+  // saveJSONObject(json, "config.json");
   
   contentModel = new Model();
+  contentModel.setState(new TitleState());
+  contentController = new Controller();
+
+  contentModel.loadText();
 
   //フレームレート
   frameRate(60);
@@ -36,12 +43,15 @@ Model getContentModel(){
 void keyPressed(){
   println("[LOG] Key Pressed " + keyCode + " \"" + char(keyCode) + "\"");
   contentModel.setKeyState(keyCode, true);
-  switch (keyPressed) {
-    case "n":
-      contentModel.setState(new GameState());
+  switch (key) {
+    case 's':
+      contentController.switch_to_standby_state();
       break;
-    case "b":
-      break;	
+    case 'v':
+      contentController.switch_to_voiceinput_state();
+      break;
+    case 'r':
+      contentController.switch_to_registration_state();
   }
 }
 void keyReleased(){

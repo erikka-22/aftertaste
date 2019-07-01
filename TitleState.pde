@@ -23,8 +23,8 @@ class TitleState extends State {
     background(100);
     textAlign(CENTER, CENTER);
     textFont(font);
-    smooth(2);
     text("タイトルState", width/2, height/2);
+    text(contentModel.getTime(), width/3, height/3);
   }
   
   /**
