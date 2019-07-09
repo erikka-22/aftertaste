@@ -2,23 +2,28 @@ class StandbyState extends State {
   PFont font;
   Model contentModel = getContentModel();
   StandbyModel standbyModel = new StandbyModel();
-  
+  Card card;
+  CardAnimation animation;
+  int x;
+
   StandbyState(){
     font = createFont("HiraMaruProN-W4", 30);
-    for (int i = 0; i < contentModel.getLength(); i++){
-      standbyModel.makeNewCard(contentModel.getText(i));
-    }
+    standbyModel.setCard();
+    card = standbyModel.makeCard();
+    animation.setAnimation();
   }
   
   
 
   void drawState() {
-    Card card = standbyModel.makeCard();
     background(0,255,255);
     textAlign(CENTER, CENTER);
     textFont(font);
+    fill(255);
     text("待機State", width/2, height/2);
-    text(card.getName(), width/3, height/3);
+    card = standbyModel.timeControl();
+    card.displayRect(x);
+    card.displayImage(x);
   }
   
   /**

@@ -1,3 +1,5 @@
+import de.looksgood.ani.*;
+
 /**
 * 環境変数
 */
@@ -13,6 +15,8 @@ Controller contentController;
 
 void setup() {
   size(1600, 900);
+  
+  Ani.init(this);
   //printArray(fontList);
 
   //設定ファイルが必要であればここから読みこむ
@@ -25,7 +29,7 @@ void setup() {
   contentModel.setState(new TitleState());
   contentController = new Controller();
 
-  contentModel.loadText();
+  
 
   //フレームレート
   frameRate(60);
@@ -37,6 +41,10 @@ void draw() {
 
 Model getContentModel(){
   return contentModel;
+}
+
+PApplet getPApplet(){
+  return this;
 }
 
 //キー入力の監視

@@ -1,8 +1,9 @@
 public class Cardbox implements StandbyAggregate {
     private ArrayList<Card> cards;
-
+    
     public Cardbox(){
         this.cards = new ArrayList<Card>();
+    
     }   
     
     public Card getCardAt(int index) {
@@ -16,6 +17,8 @@ public class Cardbox implements StandbyAggregate {
     public int getLength() {
         return cards.size();
     }
+
+
 
     public StandbyIterator iterator() {
         return new CardboxIterator(this);

@@ -26,4 +26,14 @@ public class CardboxIterator implements StandbyIterator {
         index++;
         return card;
     }
+
+    public Object thisCard() {
+        Card card = cardbox.getCardAt(index - 1);
+        return card;
+    }
+
+    public Object first() {
+        Card card = cardbox.getCardAt(0);
+        return card;
+    }
 }

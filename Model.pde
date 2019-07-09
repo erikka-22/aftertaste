@@ -4,11 +4,13 @@ public class Model {
     private State state;
     //private Phase phase = new Phase();
     private KeyStatus keyStatus = new KeyStatus();
-    private TimerModel timerModel = new TimerModel();
     private TextModel textModel = new TextModel();
+    private ImageModel imageModel = new ImageModel();
+
 
     Model(){
         state = new TitleState();
+
     }
 
     //State
@@ -30,20 +32,20 @@ public class Model {
 
     // }
 
-    public int getTime(){
-        return timerModel.getTime();
+    public ArrayList<String> loadText(String filename){
+        return textModel.loadText(filename);
     }
 
-    public void loadText(){
-        textModel.loadText();
-    }
-
-    public int getLength(){
-        return textModel.getLength();
+    public int getLength(String filename){
+        return textModel.getLength(filename);
     }
     
-    public String getText(int index) {
-        return textModel.getText(index);
+    public String getText(String filename, int index) {
+        return textModel.getText(filename, index);
+    }
+
+    public PImage getImage(String nameFileName, int index) {
+        return imageModel.getImage(nameFileName, index);
     }
 
     //デバッグモード

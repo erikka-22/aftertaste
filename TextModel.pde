@@ -5,22 +5,28 @@ public class TextModel {
 
 
     TextModel() {
-        str = new ArrayList<String>();
-        filename = "test.json";
+        
+        
     }
 
-    public void loadText(){
+    public ArrayList<String> loadText(String filename){  
+        json = new JSONArray();
+        str = new ArrayList<String>();
+        
         json = loadJSONArray(filename);
         for (int i = 0; i < json.size(); i++){
             str.add(json.getString(i));
         }
+        // print(str);
+        return str;
     }
 
-    public int getLength(){
-        return str.size();
+    public int getLength(String filename){
+        return loadText(filename).size();
     }
 
-    public String getText(int index){ 
-        return str.get(index);
+    public String getText(String filename, int index){
+        // print(filename);
+        return loadText(filename).get(index);
     }
 }

@@ -1,22 +1,54 @@
 public class StandbyModel {
-    Cardbox cardbox;
+    Cardbox cardbox = new Cardbox();
     StandbyIterator iterator;
+    Model contentModel = getContentModel();
+    int interval, lastRecordedTime;
 
-    StandbyModel(){
-        cardbox = new Cardbox();
-        iterator = cardbox.iterator();    
+    StandbyModel() {   
+        iterator = cardbox.iterator(); 
+        interval = 5000;
+        lastRecordedTime = 0;
+  
     }
 
-    void makeNewCard(String text){
-        cardbox.appendCard(new Card(text));
+    Cardbox getCardbox() {
+        return cardbox;
+    }
+
+    void makeNewCard(String text, PImage img){
+        cardbox.appendCard(new Card(text, img));
+    }
+    
+    void setCard() {
+        for (int i = 0; i < contentModel.getLength("test.json"); i++){
+            makeNewCard(contentModel.getText("test.json", i), contentModel.getImage("icons.json", i));
+        }
     }
 
     Card makeCard() {
         if (iterator.hasNext()){
             return (Card)iterator.next();
         } else {
-            return (Card)iterator.initialize();
-            
+            return (Card)iterator.initialize();       
         }
     }
+
+    Card thisCard() {
+        return (Card)iterator.thisCard();
+    }
+
+    Card firstCard() {
+        return (Card)iterator.first();
+    }
+     
+    Card timeControl() {
+        print(interval);
+        if (millis() - lastRecordedTime > interval) {
+            lastRecordedTime = millis();
+            return makeCard();
+        } else {
+            print(lastRecordedTime);
+            return thisCard();
+        }
+    } 
 }

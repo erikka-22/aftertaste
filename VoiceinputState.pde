@@ -10,7 +10,7 @@ class VoiceinputState extends State {
     textAlign(CENTER, CENTER);
     textFont(font);
     text("入力State", width/2, height/2);
-    text(contentModel.getText(1), width/3, height/3);
+    text(contentModel.getText("test.json", 1), width/3, height/3);
   }
 
 }
