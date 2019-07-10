@@ -2,15 +2,20 @@ class StandbyState extends State {
   PFont font;
   Model contentModel = getContentModel();
   StandbyModel standbyModel = new StandbyModel();
+  ArrayList<Card> cardArray;
+  int x, y;
+  CardAnimation animation = new CardAnimation();
   Card card;
-  CardAnimation animation;
-  int x;
 
   StandbyState(){
     font = createFont("HiraMaruProN-W4", 30);
     standbyModel.setCard();
-    card = standbyModel.makeCard();
-    animation.setAnimation();
+    cardArray = standbyModel.makeCard();
+    for (int i = 0; i < cardArray.size(); i++) {
+      animation.setAnimation(cardArray.get(i));
+    }
+    
+    
   }
   
   
@@ -21,11 +26,16 @@ class StandbyState extends State {
     textFont(font);
     fill(255);
     text("待機State", width/2, height/2);
-    card = standbyModel.timeControl();
-    card.displayRect(x);
-    card.displayImage(x);
+    cardArray = standbyModel.timeControl();
+    for (int j = 0; j < cardArray.size(); j++) {
+      card = standbyModel.timeControl().get(j);
+      card.displayRect();
+      card.displayImage();
+    }
+    
   }
   
+ 
   /**
     starting phaseの描画
   **/

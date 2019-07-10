@@ -3,6 +3,9 @@ public class StandbyModel {
     StandbyIterator iterator;
     Model contentModel = getContentModel();
     int interval, lastRecordedTime;
+    
+
+
 
     StandbyModel() {   
         iterator = cardbox.iterator(); 
@@ -25,29 +28,28 @@ public class StandbyModel {
         }
     }
 
-    Card makeCard() {
+    ArrayList<Card> makeCard() {
         if (iterator.hasNext()){
-            return (Card)iterator.next();
+            return (ArrayList<Card>)iterator.next();
         } else {
-            return (Card)iterator.initialize();       
+            return (ArrayList<Card>)iterator.initialize();       
         }
     }
 
-    Card thisCard() {
-        return (Card)iterator.thisCard();
+    ArrayList<Card> thisCard() {
+        return (ArrayList<Card>)iterator.thisCard();
     }
 
     Card firstCard() {
         return (Card)iterator.first();
     }
      
-    Card timeControl() {
-        print(interval);
+    ArrayList<Card> timeControl() {
         if (millis() - lastRecordedTime > interval) {
             lastRecordedTime = millis();
             return makeCard();
         } else {
-            print(lastRecordedTime);
+            
             return thisCard();
         }
     } 

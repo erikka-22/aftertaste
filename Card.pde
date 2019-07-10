@@ -1,15 +1,15 @@
 public class Card {
-
+    PVector position;
     String text;
     PImage img;
-    int i, x, y;
-    
+    int i;
+    float x, y;
 
     public Card(String text, PImage img) {
         this.text = text;
         this.img = img;
-        this.x = 100;
-        this.y = 100;
+        this.x = 300;
+        this.y = 200;
         
     }
 
@@ -18,13 +18,13 @@ public class Card {
         text(text, width/3, height/3);
     }
 
-    public void displayRect(int x) {
+    public void displayRect() {
         fill(255);
         noStroke();
         rect(x, y, width / 10, height / 10);       
     }
 
-    public void displayImage(int x) {
+    public void displayImage() {
         image(img, x, y);
     }
 
