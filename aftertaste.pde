@@ -1,5 +1,6 @@
 import de.looksgood.ani.*;
-
+import websockets.*;
+import ddf.minim.*;
 /**
 * 環境変数
 */
@@ -10,13 +11,15 @@ import de.looksgood.ani.*;
 String[] fontList = PFont.list();
 Model contentModel;
 Controller contentController;
-
+WebsocketServer wss;
 
 
 void setup() {
   size(1600, 900);
   
   Ani.init(this);
+
+  wss= new WebsocketServer(this, 5000, "/");
   //printArray(fontList);
 
   //設定ファイルが必要であればここから読みこむ
@@ -45,6 +48,10 @@ Model getContentModel(){
 
 PApplet getPApplet(){
   return this;
+}
+
+WebsocketServer getWss() {
+  return wss;
 }
 
 //キー入力の監視
