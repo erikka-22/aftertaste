@@ -3,15 +3,15 @@ public class StandbyModel {
     StandbyIterator iterator;
     Model contentModel = getContentModel();
     int interval, lastRecordedTime;
-    
+    TextModel txt = contentModel.getTextModel("test.json");
+    ImageModel image = contentModel.getImageModel("icons.json");
 
-
-
-    StandbyModel() {   
+    StandbyModel() {
+        txt.makeStringList();
+        image.makeImageList();   
         iterator = cardbox.iterator(); 
         interval = 5000;
-        lastRecordedTime = 0;
-  
+        lastRecordedTime = 0;  
     }
 
     Cardbox getCardbox() {
@@ -23,8 +23,8 @@ public class StandbyModel {
     }
     
     void setCard() {
-        for (int i = 0; i < contentModel.getLength("test.json"); i++){
-            makeNewCard(contentModel.getText("test.json", i), contentModel.getImage("icons.json", i));
+        for (int i = 0; i < txt.getLength(); i++){
+            makeNewCard(txt.getEachString(i), image.getEachImage(i));
         }
     }
 

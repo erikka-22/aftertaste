@@ -4,12 +4,13 @@ public class Model {
     private State state;
     //private Phase phase = new Phase();
     private KeyStatus keyStatus = new KeyStatus();
-    private TextModel textModel = new TextModel();
-    private ImageModel imageModel = new ImageModel();
-
+    private TextModel textModel;
+    private ImageModel imageModel;
+    private ReceivedDataModel receivedDataModel;
 
     Model(){
         state = new TitleState();
+        receivedDataModel = new ReceivedDataModel();
 
     }
 
@@ -32,22 +33,20 @@ public class Model {
 
     // }
 
-    public ArrayList<String> loadText(String filename){
-        return textModel.loadText(filename);
+    public TextModel getTextModel(String filename) {
+        textModel = new TextModel(filename);
+        return textModel ;
     }
 
-    public int getLength(String filename){
-        return textModel.getLength(filename);
+    public ImageModel getImageModel(String filename) {
+        imageModel = new ImageModel(filename);
+        return imageModel ;
+    }
+
+    public ReceivedDataModel getReceivedDataModel() {
+        return receivedDataModel.getReceivedDataModel();
     }
     
-    public String getText(String filename, int index) {
-        return textModel.getText(filename, index);
-    }
-
-    public PImage getImage(String nameFileName, int index) {
-        return imageModel.getImage(nameFileName, index);
-    }
-
     //デバッグモード
     public boolean getDebugMode(){
         return DEBUG_MODE;

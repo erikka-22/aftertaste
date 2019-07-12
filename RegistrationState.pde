@@ -1,8 +1,10 @@
 class RegistrationState extends State {
     PFont font;
     Model contentModel = getContentModel();
+    TextModel textModel = contentModel.getTextModel("test.json");
 
     RegistrationState(){
+        textModel.makeStringList();
         font = createFont("HiraMaruProN-W4", 30);
     }
     void drawState() {
@@ -10,7 +12,7 @@ class RegistrationState extends State {
         textAlign(CENTER, CENTER);
         textFont(font);
         text("登録State", width/2, height/2);
-        text(contentModel.getText("test.json", 0), width/3, height/3);
+        text(textModel.getEachString(0), width/3, height/3);
     }
 
 

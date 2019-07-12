@@ -4,12 +4,12 @@ public class TextModel {
     private JSONArray json;
 
 
-    TextModel() {
-        
+    TextModel(String filename) {
+        this.filename = filename;
         
     }
 
-    public ArrayList<String> loadText(String filename){  
+    public ArrayList<String> makeStringList(){  
         json = new JSONArray();
         str = new ArrayList<String>();
         
@@ -21,12 +21,15 @@ public class TextModel {
         return str;
     }
 
-    public int getLength(String filename){
-        return loadText(filename).size();
+    public int getLength(){
+        return str.size();
     }
 
-    public String getText(String filename, int index){
-        // print(filename);
-        return loadText(filename).get(index);
+    public ArrayList<String> getStringList(){
+        return str;
+    }
+
+    public String getEachString(int index) {
+        return str.get(index);
     }
 }
