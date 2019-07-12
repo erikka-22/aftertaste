@@ -12,7 +12,7 @@ String[] fontList = PFont.list();
 Model contentModel;
 Controller contentController;
 WebsocketServer wss;
-
+ReceivedDataModel receivedDataModel;
 
 void setup() {
   size(1600, 900);
@@ -20,19 +20,11 @@ void setup() {
   Ani.init(this);
 
   wss= new WebsocketServer(this, 5000, "/");
-  //printArray(fontList);
-
-  //設定ファイルが必要であればここから読みこむ
-  // json = loadJSONObject("config.json");
-  // println(json.getString("id"));
-  // json.setString("id", "oguri");
-  // saveJSONObject(json, "config.json");
   
   contentModel = new Model();
   contentModel.setState(new TitleState());
   contentController = new Controller();
-
-  
+  receivedDataModel = contentModel.getReceivedDataModel();
 
   //フレームレート
   frameRate(60);
@@ -40,6 +32,10 @@ void setup() {
 
 void draw() {
   contentModel.stateExecute();
+}
+
+void webSocketServerEvent(String msg) {
+  receivedDataModel.addData(msg);
 }
 
 Model getContentModel(){
