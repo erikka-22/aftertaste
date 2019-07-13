@@ -14,9 +14,28 @@ class VoiceinputState extends State {
   void drawState() {
     background(255,0,255);
     wave.displayWave();
-    view.display();
+    view.display(100, 100);
     
   }
 
+  /**
+    starting phaseの描画
+  **/
+  void drawStargingPhase(){
+
+  }
   
+  /**
+    ending phaseの描画
+  **/
+  void drawEndingPhase(){
+
+  }
+
+  /**
+    repeating phaseの描画
+  **/
+  void drawRepeatingPhase(){
+
+  }
 }

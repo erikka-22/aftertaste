@@ -56,13 +56,22 @@ void keyPressed(){
   contentModel.setKeyState(keyCode, true);
   switch (key) {
     case 's':
+      contentController.switch_to_drawing_phase();
       contentController.switch_to_standby_state();
       break;
     case 'v':
+      contentController.switch_to_drawing_phase();
       contentController.switch_to_voiceinput_state();
       break;
     case 'r':
+      contentController.switch_to_drawing_phase();
       contentController.switch_to_registration_state();
+      break;
+    case 'y':
+      contentController.switch_to_ending_phase();
+      break;
+    case 'n':
+      contentController.switch_to_repeating_phase();
   }
 }
 void keyReleased(){

@@ -5,11 +5,14 @@ public class ReceivedDataView {
 
     }
 
-    public void display() {
+    public void display(float start, float y) {
+        fill(0);
         for (int i = 0; i < receivedDataModel.getLength(); i++) {
-            text(receivedDataModel.getEachCharacter(i), i * 20, 100);
+            text(receivedDataModel.getEachCharacter(i), i * 20 + start, y);
         }
     }
+
+    
 
 }
 

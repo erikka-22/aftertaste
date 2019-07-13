@@ -2,6 +2,7 @@ class Controller{
     WebsocketServer wss = getWss();
     Model contentModel = getContentModel();
     ReceivedDataModel receivedDataModel = contentModel.getReceivedDataModel();
+    
     Controller(){
     }
 
@@ -15,5 +16,25 @@ class Controller{
     }
     void switch_to_registration_state(){        
         contentModel.setState(new RegistrationState());
+    }
+
+    void switch_to_ending_phase() {
+        contentModel.setEndingPhase(true);
+    }
+
+    void switch_to_repeating_phase() {
+        contentModel.setRepeatingPhase(true);
+    }
+
+    void switch_to_starting_phase() {
+        contentModel.setEndingPhase(false);
+        contentModel.setRepeatingPhase(false);
+        contentModel.setStartingPhase(true);
+    }
+
+    void switch_to_drawing_phase() {
+        contentModel.setEndingPhase(false);
+        contentModel.setRepeatingPhase(false);
+        contentModel.setStartingPhase(false);
     }
 }

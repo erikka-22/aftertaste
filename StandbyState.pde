@@ -51,6 +51,13 @@ class StandbyState extends State {
   }
   
   /**
+    repeating phaseの描画
+  **/
+  void drawRepeatingPhase(){
+
+  }
+
+  /**
     debug modeの場合の描画
   **/
   void debugDrawState(){

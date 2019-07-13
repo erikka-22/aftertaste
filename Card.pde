@@ -4,6 +4,7 @@ public class Card {
     PImage img;
     int i;
     float x, y;
+    Rect rect = new Rect();
 
     public Card(String text, PImage img) {
         this.text = text;
@@ -19,9 +20,7 @@ public class Card {
     }
 
     public void displayRect() {
-        fill(255);
-        noStroke();
-        rect(x, y, width / 10, height / 10);       
+        rect.display(x, y, width / 10, height / 10);       
     }
 
     public void displayImage() {
