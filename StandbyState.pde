@@ -40,7 +40,7 @@ class StandbyState extends State {
     starting phaseの描画
   **/
   void drawStargingPhase(){
-
+    
   }
   
   /**

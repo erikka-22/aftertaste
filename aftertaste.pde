@@ -15,7 +15,8 @@ WebsocketServer wss;
 ReceivedDataModel receivedDataModel;
 
 void setup() {
-  size(1600, 900);
+  fullScreen();
+  // size(1600, 900);
   
   Ani.init(this);
 
@@ -69,9 +70,12 @@ void keyPressed(){
       break;
     case 'y':
       contentController.switch_to_ending_phase();
+      contentController.switch_to_standby_state();
       break;
     case 'n':
       contentController.switch_to_repeating_phase();
+      contentController.switch_to_voiceinput_state();
+      break;
   }
 }
 void keyReleased(){

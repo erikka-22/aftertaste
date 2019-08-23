@@ -8,7 +8,7 @@ public class ReceivedDataView {
     public void display(float start, float y) {
         fill(0);
         for (int i = 0; i < receivedDataModel.getLength(); i++) {
-            text(receivedDataModel.getEachCharacter(i), i * 20 + start, y);
+            text(receivedDataModel.getEachCharacter(i), i * 40 + start, y);
         }
     }
 

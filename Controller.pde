@@ -11,10 +11,14 @@ class Controller{
         receivedDataModel.deleteData();
         contentModel.setState(new StandbyState());
     }
+
     void switch_to_voiceinput_state(){
+        receivedDataModel.deleteData();
         contentModel.setState(new VoiceinputState());
     }
-    void switch_to_registration_state(){        
+    
+    void switch_to_registration_state(){
+        wss.sendMessage("end");         
         contentModel.setState(new RegistrationState());
     }
 
