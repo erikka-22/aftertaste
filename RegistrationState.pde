@@ -1,10 +1,13 @@
 class RegistrationState extends State {
     PFont font;
+    PImage img;
+
     ReceivedDataView view = new ReceivedDataView();
     Model contentModel = getContentModel();
     ReceivedDataModel receivedDataModel = contentModel.getReceivedDataModel();
     Rect rect = new Rect();
-    PImage img;
+    Controller controller = new Controller();
+    WebsocketServer wss = getWss();
 
     RegistrationState(){
         font = createFont("HiraMaruProN-W4", 30);
@@ -30,14 +33,15 @@ class RegistrationState extends State {
     starting phaseの描画
     **/
     void drawStargingPhase(){
-
+        
     }
     
     /**
         ending phaseの描画
     **/
     void drawEndingPhase(){
-
+        wss.sendMessage("done");
+        controller.switch_to_standby_state();
     }
 
     /**

@@ -6,8 +6,8 @@ class Controller{
     Controller(){
     }
 
-    void switch_to_standby_state(){
-        wss.sendMessage("end"); 
+    void switch_to_standby_state(){ 
+        contentModel.setEndingPhase(false);
         receivedDataModel.deleteData();
         contentModel.setState(new StandbyState());
     }
