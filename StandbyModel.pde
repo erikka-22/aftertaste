@@ -3,8 +3,9 @@ public class StandbyModel {
     StandbyIterator iterator;
     Model contentModel = getContentModel();
     int interval, lastRecordedTime;
-    TextModel txt = contentModel.getTextModel("test.json");
+    TextModel txt = contentModel.getTextModel("voice.json");
     ImageModel image = contentModel.getImageModel("icons.json");
+    boolean flag = false;
 
     StandbyModel() {
         txt.makeStringList();
@@ -16,6 +17,11 @@ public class StandbyModel {
 
     Cardbox getCardbox() {
         return cardbox;
+    }
+
+    int getLength() {
+        print(cardbox.getLength());
+        return cardbox.getLength();
     }
 
     void makeNewCard(String text, PImage img){
@@ -47,10 +53,16 @@ public class StandbyModel {
     ArrayList<Card> timeControl() {
         if (millis() - lastRecordedTime > interval) {
             lastRecordedTime = millis();
+            flag = true;
+            
             return makeCard();
         } else {
-            
+            flag = false;
             return thisCard();
         }
+    }
+
+    boolean getFlag() {
+        return flag;
     } 
 }

@@ -10,7 +10,7 @@ class RegistrationState extends State {
     WebsocketServer wss = getWss();
 
     RegistrationState(){
-        font = createFont("HiraMaruProN-W4", 30);
+        font = createFont("HiraMaruProN-W4", 20);
         img = loadImage("black.png");
     }
 
@@ -19,7 +19,7 @@ class RegistrationState extends State {
         rect.colors(width / 2, height / 2, width / 2, height / 2, 255, 255, 255);
         fill(0);
         text("これでいいですか？", width / 2, height / 6);
-        view.display(width * 0.4, height * 0.3, 1);
+        view.displayRegistration(width * 0.4, height * 0.3);
         rect.colors(width * 0.2, height * 0.85, width * 0.2, height * 0.1, 255, 0, 0);
         rect.colors(width * 0.8, height * 0.85, width * 0.2, height * 0.1, 0, 255, 0);
         image(img, width * 0.3, height * 0.4);
