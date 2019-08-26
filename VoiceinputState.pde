@@ -14,7 +14,7 @@ class VoiceinputState extends State {
   void drawState() {
     background(255,255,255);
     wave.displayWave();
-    view.display(100, 100);
+    view.display(100, 100, 0);
     
   }
 
