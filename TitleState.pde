@@ -1,9 +1,11 @@
 class TitleState extends State {
   PFont font;
   Model contentModel = getContentModel();
+  PImage img;
 
   TitleState(){
-    font = createFont("HiraMaruProN-W4", 30);
+    font = createFont("HiraMaruProN-W4", 60);
+    img = loadImage("asala.png");
   }
   /**
     starting phaseの描画
@@ -30,8 +32,8 @@ class TitleState extends State {
     background(100);
     textAlign(CENTER, CENTER);
     textFont(font);
-    text("タイトルState", width/2, height/2);
-    text(millis(), width/3, height/3);
+    text("デジタル タイム カプセル", width/2, height/4);
+    image(img, width/2, height/2);
   }
   
   /**
