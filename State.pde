@@ -1,22 +1,21 @@
 abstract class State {
   Model contentModel = getContentModel();
 
-  boolean STARTING_PHASE = false;
-  boolean ENDING_PHASE = false;
-  boolean DEBUG_MODE = false;
-
+  
   State() {
   }
 
   void execute() {
-    // if(STARTING_PHASE){
-    //   drawStargingPhase();
-    // } else if(ENDING_PHASE){
-    //   drawEndingPhase();
-    // } else {
+    if(contentModel.getStartingPhase()){
+      drawStargingPhase();
+    } else if(contentModel.getEndingPhase()){
+      drawEndingPhase();
+    } else if (contentModel.getRepeatingPhase()) {
+      drawRepeatingPhase();
+    } else {
     //   //描画
       drawState();
-    // }
+    }
     //デバッグモード
     // if(DEBUG_MODE){
     //   debugDrawState();
@@ -26,13 +25,18 @@ abstract class State {
   /**
     starting phaseの描画
   **/
-  // abstract void drawStargingPhase();
+  abstract void drawStargingPhase();
   
   // /**
   //   ending phaseの描画
   // **/
-  // abstract void drawEndingPhase();
-
+  abstract void drawEndingPhase();
+  
+  /**
+    starting phaseの描画
+  **/
+  abstract void drawRepeatingPhase();
+  
   /**
     default phaseの描画
   **/

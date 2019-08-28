@@ -27,4 +27,9 @@ public class ReceivedDataModel {
     public ReceivedDataModel getReceivedDataModel() {
         return this;
     }
+
+    public void makeTestData() {
+        receivedData.add("自然の恵が美味しい");
+        receivedData.add("やさしく飲みやすい軟水です");
+    }
 }

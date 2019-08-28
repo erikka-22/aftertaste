@@ -2,35 +2,34 @@ class StandbyState extends State {
   PFont font;
   Model contentModel = getContentModel();
   StandbyModel standbyModel = new StandbyModel();
+  CardAnimation animation = new CardAnimation();
+  CardPositionModel position = new CardPositionModel();
   ArrayList<Card> cardArray;
   int x, y;
-  CardAnimation animation = new CardAnimation();
   Card card;
 
   StandbyState(){
     font = createFont("HiraMaruProN-W4", 30);
     standbyModel.setCard();
     cardArray = standbyModel.makeCard();
-    for (int i = 0; i < cardArray.size(); i++) {
-      animation.setAnimation(cardArray.get(i));
-    }
-    
-    
+    // animation.setAnimation(cardArray.get(0));
   }
   
   
 
   void drawState() {
-    background(0,255,255);
+    background(200,200,200);
     textAlign(CENTER, CENTER);
     textFont(font);
-    fill(255);
-    text("待機State", width/2, height/2);
     cardArray = standbyModel.timeControl();
+    // if (standbyModel.getFlag() == true) {
+    //   animation.setAnimation(cardArray.get(0));
+    // }
     for (int j = 0; j < cardArray.size(); j++) {
-      card = standbyModel.timeControl().get(j);
-      card.displayRect();
-      card.displayImage();
+      card = cardArray.get(j);
+      card.displayRect(position.getPosition(j).x, position.getPosition(j).y);
+      card.displayImage(position.getPosition(j).x, position.getPosition(j).y);
+      card.displayText(position.getPosition(j).x, position.getPosition(j).y);
     }
     
   }
@@ -40,7 +39,7 @@ class StandbyState extends State {
     starting phaseの描画
   **/
   void drawStargingPhase(){
-
+    
   }
   
   /**
@@ -50,6 +49,13 @@ class StandbyState extends State {
 
   }
   
+  /**
+    repeating phaseの描画
+  **/
+  void drawRepeatingPhase(){
+
+  }
+
   /**
     debug modeの場合の描画
   **/

@@ -1,5 +1,9 @@
 public class Model {
+    boolean STARTING_PHASE = false;
+    boolean ENDING_PHASE = false;
     boolean DEBUG_MODE = false;
+    boolean REPEATING_PHASE = false;
+
 
     private State state;
     //private Phase phase = new Phase();
@@ -26,12 +30,33 @@ public class Model {
     }
       
     //フェーズ
-    // public Phase getPhase(){
-    //     return phase;
-    // }
-    // public void setPhase(){
+    public boolean getStartingPhase(){
+        return STARTING_PHASE;
+    }
 
-    // }
+    public boolean getEndingPhase(){
+        return ENDING_PHASE;
+    }
+
+    public boolean getRepeatingPhase(){
+        return REPEATING_PHASE;
+    }
+
+    public void setStartingPhase(boolean mode) {
+        STARTING_PHASE = mode;
+    }
+
+    public void setEndingPhase(boolean mode) {
+        ENDING_PHASE = mode;
+    }
+
+    public void setRepeatingPhase(boolean mode) {
+        REPEATING_PHASE = mode;
+    }
+
+    
+
+    // 子モデル
 
     public TextModel getTextModel(String filename) {
         textModel = new TextModel(filename);

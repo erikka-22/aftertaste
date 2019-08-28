@@ -27,6 +27,13 @@ class EndingState extends State {
   }
   
   /**
+    repeating phaseの描画
+  **/
+  void drawRepeatingPhase(){
+    print("repeat");
+  }
+
+  /**
     debug modeの場合の描画
   **/
   void debugDrawState(){

@@ -9,14 +9,21 @@ class TitleState extends State {
     starting phaseの描画
   **/
   void drawStargingPhase(){
-
+    print("start");
   }
   
   /**
     ending phaseの描画
   **/
   void drawEndingPhase(){
+    print("end");
+  }
 
+  /**
+    repeating phaseの描画
+  **/
+  void drawRepeatingPhase(){
+    print("repeat");
   }
 
   void drawState() {
