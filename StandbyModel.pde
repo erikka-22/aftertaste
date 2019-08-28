@@ -3,7 +3,7 @@ public class StandbyModel {
     StandbyIterator iterator;
     Model contentModel = getContentModel();
     int interval, lastRecordedTime;
-    TextModel txt = contentModel.getTextModel("voice.json");
+    TextModel txt = contentModel.getTextModel("test.json");
     ImageModel image = contentModel.getImageModel("icons.json");
     boolean flag = false;
 
