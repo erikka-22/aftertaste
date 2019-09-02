@@ -18,6 +18,7 @@ class RegistrationState extends State {
         background(255,255,255);
         rect.colors(width / 2, height / 2, width / 2, height / 2, 255, 255, 255);
         fill(0);
+        textAlign(CENTER, CENTER);
         text("これでいいですか？", width / 2, height / 6);
         view.displayRegistration(width * 0.36, height * 0.3, 25);
         rect.colors(width * 0.2, height * 0.85, width * 0.2, height * 0.1, 255, 0, 0);
