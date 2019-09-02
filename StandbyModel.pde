@@ -3,12 +3,12 @@ public class StandbyModel {
     StandbyIterator iterator;
     Model contentModel = getContentModel();
     int interval, lastRecordedTime;
-    TextModel txt = contentModel.getTextModel("test.json");
+    TextModel txt = contentModel.getTextModel("string.txt");
     ImageModel image = contentModel.getImageModel("icons.json");
     boolean flag = false;
 
     StandbyModel() {
-        txt.makeStringList();
+        txt.makeText();
         image.makeImageList();   
         iterator = cardbox.iterator(); 
         interval = 5000;

@@ -5,18 +5,20 @@ public class ReceivedDataView {
 
     }
 
-    public void displayRegistration(float startX, float startY) {
+    public void displayRegistration(float startX, float startY, int fontsize) {
         fill(0);
         int lines = 0;
         int charPerLine = 0;
         float lineSpacing = 40;
+        textSize(fontsize);
         for (int i = 0; i < receivedDataModel.getLength(); i++) {
-            if ((i - charPerLine + 1) * 40 > (width / 3)) {
+            if ((i - charPerLine + 1) * (fontsize + fontsize / 3) > (width * 0.4)) {
                 lines += 1;
                 charPerLine = i;
             }
-            text(receivedDataModel.getEachCharacter(i), (i - charPerLine) * 40 + startX, startY + lines * lineSpacing);
+            text(receivedDataModel.getEachCharacter(i), (i - charPerLine) * (fontsize + fontsize / 3) + startX, startY + lines * lineSpacing);
         }
+        textSize(30);
     }
 
     public void displayVoice(float startX, float startY) {

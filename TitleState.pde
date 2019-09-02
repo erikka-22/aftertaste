@@ -1,9 +1,12 @@
 class TitleState extends State {
   PFont font;
   Model contentModel = getContentModel();
+  
+  TitleView view = new TitleView();
 
   TitleState(){
-    font = createFont("HiraMaruProN-W4", 30);
+    font = createFont("HiraMaruProN-W4", 60);
+    
   }
   /**
     starting phaseの描画
@@ -27,11 +30,14 @@ class TitleState extends State {
   }
 
   void drawState() {
-    background(100);
+    background(255);
     textAlign(CENTER, CENTER);
     textFont(font);
-    text("タイトルState", width/2, height/2);
-    text(millis(), width/3, height/3);
+    fill(0);
+    textSize(60);
+    text("デジタル タイム カプセル", width/2, height * 0.15);
+    view.drawTimeCapsule();
+    
   }
   
   /**
