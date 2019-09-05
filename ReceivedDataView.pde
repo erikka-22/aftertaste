@@ -39,5 +39,9 @@ public class ReceivedDataView {
         }
         
     }
+
+    // public void displayAlart() {
+    //     text("あと15秒で話し終えてね！", );
+    // }
 }
 

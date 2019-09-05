@@ -9,6 +9,7 @@ public class StandbyModel {
 
     StandbyModel() {
         txt.makeText();
+        // txt.getStringList();
         image.makeImageList();   
         iterator = cardbox.iterator(); 
         interval = 5000;

@@ -27,6 +27,7 @@ public class TextModel {
         text = loadStrings(filename);
         for (int i = 0; i < text.length; i++){
             str.add(text[i]);
+            println(text[i]);
         }
         // print(str);
         return str;
