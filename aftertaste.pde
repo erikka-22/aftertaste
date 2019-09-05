@@ -15,8 +15,8 @@ WebsocketServer wss;
 ReceivedDataModel receivedDataModel;
 
 void setup() {
-  fullScreen();
-  // size(1600, 900);
+  // fullScreen();
+  size(800, 400);
   
   Ani.init(this);
 

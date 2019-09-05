@@ -42,6 +42,7 @@ class RegistrationState extends State {
     **/
     void drawEndingPhase(){
         wss.sendMessage("done");
+        delay(500);
         controller.switch_to_standby_state();
     }
 
