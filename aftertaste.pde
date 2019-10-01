@@ -16,7 +16,7 @@ ReceivedDataModel receivedDataModel;
 
 void setup() {
   // fullScreen();
-  size(800, 400);
+  size(1600, 900);
   
   Ani.init(this);
 
@@ -68,6 +68,10 @@ void keyPressed(){
       contentController.switch_to_drawing_phase();
       contentController.switch_to_registration_state();
       break;
+    case 'e':
+      contentController.switch_to_drawing_phase();
+      contentController.switch_to_exhiroom_state();
+      break;  
     case 'y':
       contentController.switch_to_ending_phase();
       break;

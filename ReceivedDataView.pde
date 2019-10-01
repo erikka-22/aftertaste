@@ -27,7 +27,10 @@ public class ReceivedDataView {
         int charPerLine = 0;
         float lineSpacing = 40;
         if (receivedDataModel.getLength() == 0) {
-            text("どんなところが面白かったですか？", startX + 200, 50);
+            push();
+            textAlign(CENTER);
+            text("どんなところが面白かったですか？", width / 2, 50);
+            pop();
         } else {
             for (int i = 0; i < receivedDataModel.getLength(); i++) {
                 if ((i - charPerLine + 1) * 40 > (width - startX)) {
