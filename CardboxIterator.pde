@@ -4,7 +4,7 @@ public class CardboxIterator implements StandbyIterator {
     private ArrayList<Card> cardArray = new ArrayList<Card>();
     public CardboxIterator(Cardbox cardbox) {
         this.cardbox = cardbox;
-        this.index = 0;
+        this.index = 4;
         this.cardArray = cardArray;
     }
 
@@ -42,7 +42,10 @@ public class CardboxIterator implements StandbyIterator {
     }
 
     public Object first() {
-        Card card = cardbox.getCardAt(0);
-        return card;
+        for (int i = 0; i < 4; i++){
+            Card card = cardbox.getCardAt(i);
+            cardArray.add(0, card);
+        }
+        return cardArray;
     }
 }
