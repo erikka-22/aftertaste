@@ -11,7 +11,7 @@ class StandbyState extends State {
   StandbyState(){
     font = createFont("HiraMaruProN-W4", 30);
     standbyModel.setCard();
-    cardArray = standbyModel.makeCard();
+    cardArray = standbyModel.firstCardSet();
     // animation.setAnimation(cardArray.get(0));
   }
   

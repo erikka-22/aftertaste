@@ -18,8 +18,6 @@ public class Cardbox implements StandbyAggregate {
         return cards.size();
     }
 
-
-
     public StandbyIterator iterator() {
         return new CardboxIterator(this);
     }
