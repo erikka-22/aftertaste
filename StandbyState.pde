@@ -2,7 +2,7 @@ class StandbyState extends State {
   PFont font;
   Model contentModel = getContentModel();
   StandbyModel standbyModel = new StandbyModel();
-  CardAnimation animation = new CardAnimation();
+  // CardAnimation animation = new CardAnimation();
   CardPositionModel position = new CardPositionModel();
   ArrayList<Card> cardArray;
   int x, y;
@@ -21,6 +21,9 @@ class StandbyState extends State {
     background(200,200,200);
     textAlign(CENTER, CENTER);
     textFont(font);
+    push();
+    
+    pop();
     cardArray = standbyModel.timeControl();
     // if (standbyModel.getFlag() == true) {
     //   animation.setAnimation(cardArray.get(0));

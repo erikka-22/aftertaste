@@ -22,7 +22,7 @@ public class Card {
     }
 
     public void displayRect(float x, float y) {
-        rect.display(x, y, width * 0.4, height * 0.4);       
+        rect.display(x, y, width * 0.4, height * 0.35);       
     }
 
     public void displayImage(float x, float y) {
