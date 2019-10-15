@@ -57,19 +57,19 @@ void keyPressed(){
       contentController.switch_to_drawing_phase();
       contentController.switch_to_standby_state();
       break;
-    case 'v':
+    case '7':
       contentController.switch_to_drawing_phase();
       contentController.switch_to_voiceinput_state();
       break;
-    case 'r':
+    case '5':
       contentController.switch_to_drawing_phase();
       contentController.switch_to_registration_state();
       break;
-    case 'e':
-      contentController.switch_to_drawing_phase();
-      contentController.switch_to_exhiroom_state();
-      break;  
-    case 'y':
+    // case 'e':
+    //   contentController.switch_to_drawing_phase();
+    //   contentController.switch_to_exhiroom_state();
+    //   break;  
+    case '3':
       contentController.switch_to_ending_phase();
       break;
   }
