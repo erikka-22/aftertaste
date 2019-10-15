@@ -2,7 +2,6 @@ class StandbyState extends State {
   PFont font;
   Model contentModel = getContentModel();
   StandbyModel standbyModel = new StandbyModel();
-  CardAnimation animation = new CardAnimation();
   CardPositionModel position = new CardPositionModel();
   ArrayList<Card> cardArray;
   int x, y;
@@ -12,7 +11,6 @@ class StandbyState extends State {
     font = createFont("HiraMaruProN-W4", 30);
     standbyModel.setCard();
     cardArray = standbyModel.makeCard();
-    // animation.setAnimation(cardArray.get(0));
   }
   
   
@@ -23,7 +21,6 @@ class StandbyState extends State {
     textFont(font);
     cardArray = standbyModel.timeControl();
     // if (standbyModel.getFlag() == true) {
-    //   animation.setAnimation(cardArray.get(0));
     // }
     for (int j = 0; j < cardArray.size(); j++) {
       card = cardArray.get(j);

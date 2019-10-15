@@ -2,6 +2,7 @@ public class StandbyModel {
     Cardbox cardbox = new Cardbox();
     StandbyIterator iterator;
     Model contentModel = getContentModel();
+    WebsocketServer wss = getWss();
     int interval, lastRecordedTime;
     TextModel txt = contentModel.getTextModel("string.txt");
     ImageModel image = contentModel.getImageModel("icons.json");
@@ -55,7 +56,7 @@ public class StandbyModel {
         if (millis() - lastRecordedTime > interval) {
             lastRecordedTime = millis();
             flag = true;
-            
+            wss.sendMessage("");
             return makeCard();
         } else {
             flag = false;

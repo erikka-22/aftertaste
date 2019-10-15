@@ -1,4 +1,3 @@
-import de.looksgood.ani.*;
 import websockets.*;
 import ddf.minim.*;
 /**
@@ -17,8 +16,6 @@ ReceivedDataModel receivedDataModel;
 void setup() {
   // fullScreen();
   size(800, 400);
-  
-  Ani.init(this);
 
   wss= new WebsocketServer(this, 5000, "/");
   
@@ -55,20 +52,20 @@ WebsocketServer getWss() {
 void keyPressed(){
   println("[LOG] Key Pressed " + keyCode + " \"" + char(keyCode) + "\"");
   contentModel.setKeyState(keyCode, true);
-  switch (key) {
-    case 's':
+  switch (keyCode) {
+    case 97:
       contentController.switch_to_drawing_phase();
       contentController.switch_to_standby_state();
       break;
-    case 'v':
+    case 103:
       contentController.switch_to_drawing_phase();
       contentController.switch_to_voiceinput_state();
       break;
-    case 'r':
+    case 101:
       contentController.switch_to_drawing_phase();
       contentController.switch_to_registration_state();
       break;
-    case 'y':
+    case 99:
       contentController.switch_to_ending_phase();
       break;
   }
