@@ -23,6 +23,10 @@ class Controller{
         contentModel.setState(new RegistrationState());
     }
 
+    void switch_to_exhiroom_state(){         
+        contentModel.setState(new ExhiRoomState());
+    }
+
     void switch_to_ending_phase() {
         contentModel.setEndingPhase(true);
     }

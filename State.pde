@@ -7,7 +7,7 @@ abstract class State {
 
   void execute() {
     if(contentModel.getStartingPhase()){
-      drawStargingPhase();
+      drawStartingPhase();
     } else if(contentModel.getEndingPhase()){
       drawEndingPhase();
     } else if (contentModel.getRepeatingPhase()) {
@@ -25,7 +25,7 @@ abstract class State {
   /**
     starting phaseの描画
   **/
-  abstract void drawStargingPhase();
+  abstract void drawStartingPhase();
   
   // /**
   //   ending phaseの描画

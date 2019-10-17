@@ -20,8 +20,6 @@ class StandbyState extends State {
     textAlign(CENTER, CENTER);
     textFont(font);
     cardArray = standbyModel.timeControl();
-    // if (standbyModel.getFlag() == true) {
-    // }
     for (int j = 0; j < cardArray.size(); j++) {
       card = cardArray.get(j);
       card.displayRect(position.getPosition(j).x, position.getPosition(j).y);
@@ -35,7 +33,7 @@ class StandbyState extends State {
   /**
     starting phaseの描画
   **/
-  void drawStargingPhase(){
+  void drawStartingPhase(){
     
   }
   

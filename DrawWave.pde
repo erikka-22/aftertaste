@@ -13,7 +13,10 @@ public class DrawWave {
         stroke(0, 0, 0);
         strokeWeight(4);
         for (int i = 0; i < in.bufferSize() * 2 / 3 ; i++) {
+            push();
+            stroke(0);
             point(width * 0.025 + i * 2, height * 0.8 + in.left.get(i) * waveH);
+            pop();
         }
         pop();
     } 

@@ -15,7 +15,7 @@ ReceivedDataModel receivedDataModel;
 
 void setup() {
   // fullScreen();
-  size(1920, 1100);
+  size(1920, 1200);
 
   wss= new WebsocketServer(this, 5000, "/");
   
@@ -25,7 +25,7 @@ void setup() {
   receivedDataModel = contentModel.getReceivedDataModel();
 
   //フレームレート
-  frameRate(60);
+  frameRate(10);
 }
 
 void draw() {
@@ -65,7 +65,11 @@ void keyPressed(){
       contentController.switch_to_drawing_phase();
       contentController.switch_to_registration_state();
       break;
-    case 99:
+    case 'e':
+      contentController.switch_to_drawing_phase();
+      contentController.switch_to_exhiroom_state();
+      break;  
+    case 'y':
       contentController.switch_to_ending_phase();
       break;
   }
@@ -77,22 +81,22 @@ void keyReleased(){
 void keyTyped(){
   println("[LOG] Key Typed " + keyCode);
 }
-//マウス操作の監視
-void mouseClicked(){
-  println("[LOG] Mouse Clicked " + mouseButton + " x,y=(" + mouseX + "," + mouseY + ")");
-}
-void mouseDragged(){
-  println("[LOG] Mouse Dragged " + "x,y=(" + mouseX + "," + mouseY + ")");
-}
-void mouseMoved(){
-  println("[LOG] Mouse Moved " + "x,y=(" + mouseX + "," + mouseY + ")");
-}
-void mousePressed(){
-  println("[LOG] Mouse Pressed " + mouseButton + " x,y=(" + mouseX + "," + mouseY + ")");
-}
-void mouseReleased(){
-  println("[LOG] Mouse Released " + mouseButton + " x,y=(" + mouseX + "," + mouseY + ")");
-}
-void mouseWheel(){
-  println("[LOG] Mouse Wheel " + "x,y=(" + mouseX + "," + mouseY + ")");
-}
+// //マウス操作の監視
+// void mouseClicked(){
+//   println("[LOG] Mouse Clicked " + mouseButton + " x,y=(" + mouseX + "," + mouseY + ")");
+// }
+// void mouseDragged(){
+//   println("[LOG] Mouse Dragged " + "x,y=(" + mouseX + "," + mouseY + ")");
+// }
+// void mouseMoved(){
+//   println("[LOG] Mouse Moved " + "x,y=(" + mouseX + "," + mouseY + ")");
+// }
+// void mousePressed(){
+//   println("[LOG] Mouse Pressed " + mouseButton + " x,y=(" + mouseX + "," + mouseY + ")");
+// }
+// void mouseReleased(){
+//   println("[LOG] Mouse Released " + mouseButton + " x,y=(" + mouseX + "," + mouseY + ")");
+// }
+// void mouseWheel(){
+//   println("[LOG] Mouse Wheel " + "x,y=(" + mouseX + "," + mouseY + ")");
+// }
