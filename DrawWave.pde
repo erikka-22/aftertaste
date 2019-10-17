@@ -9,6 +9,8 @@ public class DrawWave {
     }
 
     public void displayWave() {
+        push();
+        stroke(0, 0, 0);
         strokeWeight(4);
         for (int i = 0; i < in.bufferSize() * 2 / 3 ; i++) {
             push();
@@ -16,6 +18,6 @@ public class DrawWave {
             point(width * 0.025 + i * 2, height * 0.8 + in.left.get(i) * waveH);
             pop();
         }
-        strokeWeight(1);
+        pop();
     } 
 }

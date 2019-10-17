@@ -52,16 +52,16 @@ WebsocketServer getWss() {
 void keyPressed(){
   println("[LOG] Key Pressed " + keyCode + " \"" + char(keyCode) + "\"");
   contentModel.setKeyState(keyCode, true);
-  switch (key) {
-    case 's':
+  switch (keyCode) {
+    case 97:
       contentController.switch_to_drawing_phase();
       contentController.switch_to_standby_state();
       break;
-    case 'v':
+    case 103:
       contentController.switch_to_drawing_phase();
       contentController.switch_to_voiceinput_state();
       break;
-    case 'r':
+    case 101:
       contentController.switch_to_drawing_phase();
       contentController.switch_to_registration_state();
       break;
