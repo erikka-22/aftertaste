@@ -53,7 +53,7 @@ void keyPressed(){
   println("[LOG] Key Pressed " + keyCode + " \"" + char(keyCode) + "\"");
   contentModel.setKeyState(keyCode, true);
   switch (keyCode) {
-    case 97:
+    case 99:
       contentController.switch_to_drawing_phase();
       contentController.switch_to_standby_state();
       break;
@@ -65,13 +65,13 @@ void keyPressed(){
       contentController.switch_to_drawing_phase();
       contentController.switch_to_registration_state();
       break;
-    case 'e':
-      contentController.switch_to_drawing_phase();
-      contentController.switch_to_exhiroom_state();
-      break;  
-    case 'y':
-      contentController.switch_to_ending_phase();
-      break;
+    // case 'e':
+    //   contentController.switch_to_drawing_phase();
+    //   contentController.switch_to_exhiroom_state();
+    //   break;  
+    // case 'y':
+    //   contentController.switch_to_ending_phase();
+    //   break;
   }
 }
 void keyReleased(){
