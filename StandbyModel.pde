@@ -32,7 +32,7 @@ public class StandbyModel {
     
     void setCard() {
         for (int i = 0; i < txt.getLength(); i++){
-            makeNewCard(txt.getEachString(i), image.getEachImage(i));
+            makeNewCard(txt.getEachString(i), image.getEachImage(int(random(8))));
         }
     }
 
@@ -48,8 +48,8 @@ public class StandbyModel {
         return (ArrayList<Card>)iterator.thisCard();
     }
 
-    Card firstCard() {
-        return (Card)iterator.first();
+    ArrayList<Card> firstCard() {
+        return (ArrayList<Card>)iterator.first();
     }
      
     ArrayList<Card> timeControl() {
