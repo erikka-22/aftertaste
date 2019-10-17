@@ -48,7 +48,7 @@ public class StandbyModel {
         return (ArrayList<Card>)iterator.thisCard();
     }
 
-    ArrayList<Card> firstCard() {
+    ArrayList<Card> firstCardSet() {
         return (ArrayList<Card>)iterator.first();
     }
      
