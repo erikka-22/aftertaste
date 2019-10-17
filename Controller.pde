@@ -14,6 +14,7 @@ class Controller{
 
     void switch_to_voiceinput_state(){
         receivedDataModel.deleteData();
+        wss.sendMessage("connected");
         contentModel.setState(new VoiceinputState());
     }
     

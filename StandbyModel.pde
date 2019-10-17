@@ -4,7 +4,7 @@ public class StandbyModel {
     Model contentModel = getContentModel();
     WebsocketServer wss = getWss();
     int interval, lastRecordedTime;
-    TextModel txt = contentModel.getTextModel("string.txt");
+    TextModel txt = contentModel.getTextModel("test.txt");
     ImageModel image = contentModel.getImageModel("icons.json");
     boolean flag = false;
 

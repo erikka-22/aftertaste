@@ -7,8 +7,6 @@ class VoiceinputState extends State {
 
   VoiceinputState(){
     font = createFont("HiraMaruProN-W4", 30);
-    wss.sendMessage("connected"); 
-      
   }
 
   void drawState() {

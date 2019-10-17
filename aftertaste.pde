@@ -15,7 +15,7 @@ ReceivedDataModel receivedDataModel;
 
 void setup() {
   // fullScreen();
-  size(800, 400);
+  size(1920, 1100);
 
   wss= new WebsocketServer(this, 5000, "/");
   
