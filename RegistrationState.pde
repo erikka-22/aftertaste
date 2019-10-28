@@ -26,8 +26,7 @@ class RegistrationState extends State {
         image(img, width * 0.26, height * 0.4);
         fill(0);
         text("だいたいOK", width * 0.2, height * 0.83);
-        text("もう一度入力する", width * 0.8, height * 0.83);
-        
+        text("もう一度入力する", width * 0.8, height * 0.83);   
     }
 
     /**
