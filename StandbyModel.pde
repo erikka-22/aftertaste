@@ -5,7 +5,8 @@ public class StandbyModel {
     WebsocketServer wss = getWss();
     int interval, lastRecordedTime;
     TextModel txt = contentModel.getTextModel("test.txt");
-    ImageModel image = contentModel.getImageModel("icons.json");
+    // ImageModel image = contentModel.getImageModel("icons.json");
+    ImageModel image = contentModel.getImageModel("picture_name.txt");
     boolean flag = false;
 
     StandbyModel() {
@@ -32,7 +33,7 @@ public class StandbyModel {
     
     void setCard() {
         for (int i = 0; i < txt.getLength(); i++){
-            makeNewCard(txt.getEachString(i), image.getEachImage(int(random(8))));
+            makeNewCard(txt.getEachString(i), image.getEachImage(int(random(image.getImageListLength()))));
         }
     }
 

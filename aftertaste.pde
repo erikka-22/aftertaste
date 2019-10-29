@@ -53,7 +53,7 @@ void keyPressed(){
   println("[LOG] Key Pressed " + keyCode + " \"" + char(keyCode) + "\"");
   contentModel.setKeyState(keyCode, true);
   switch (keyCode) {
-    case 99:
+    case 83:
       contentController.switch_to_drawing_phase();
       contentController.switch_to_standby_state();
       break;

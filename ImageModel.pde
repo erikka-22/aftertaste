@@ -6,11 +6,16 @@ private class ImageModel {
     ImageModel(String nameFileName) {
         Model contentModel = getContentModel();
         this.imgFileName = contentModel.getTextModel(nameFileName);
-        imgFileName.makeStringList();
+        // imgFileName.makeStringList();
+        imgFileName.makeText();
     }
 
     public ArrayList<PImage> getImageList() {
         return imgList;
+    }
+
+    public int getImageListLength() {
+        return imgList.size();
     }
 
     public PImage getEachImage(int index) {
@@ -22,7 +27,6 @@ private class ImageModel {
             img = loadImage(imgFileName.getEachString(i));
             imgList.add(img);
         }
-        
     }
 
     
