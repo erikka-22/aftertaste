@@ -4,13 +4,12 @@ public class StandbyModel {
     Model contentModel = getContentModel();
     WebsocketServer wss = getWss();
     int interval, lastRecordedTime;
-    TextModel txt = contentModel.getTextModel("test.txt");
-    // ImageModel image = contentModel.getImageModel("icons.json");
-    ImageModel image = contentModel.getImageModel("picture_name.txt");
+    TextModel txt = contentModel.getTextModel("test.json");
+    ImageModel image = contentModel.getImageModel("test.json");
     boolean flag = false;
 
     StandbyModel() {
-        txt.makeText();
+        txt.acquireElement("comments", "comment");
         // txt.getStringList();
         image.makeImageList();   
         iterator = cardbox.iterator(); 

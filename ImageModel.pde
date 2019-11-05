@@ -1,13 +1,12 @@
 private class ImageModel {
     ArrayList<PImage> imgList = new ArrayList<PImage>();
     PImage img;
-    ArrayList<String> str;
     TextModel imgFileName;
     ImageModel(String nameFileName) {
         Model contentModel = getContentModel();
         this.imgFileName = contentModel.getTextModel(nameFileName);
         // imgFileName.makeStringList();
-        imgFileName.makeText();
+        imgFileName.acquireElement("comments", "pic_name");
     }
 
     public ArrayList<PImage> getImageList() {
