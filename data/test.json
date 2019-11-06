@@ -1,20 +1,18 @@
-{
-    "comments": [
-        {
-            "pic_name": "/Users/erika/aftertaste/data/picture/100.jpg",
-            "comment": "test"
-        },
-        {
-            "pic_name": "/Users/erika/aftertaste/data/picture/101.jpg",
-            "comment": "hello"
-        },
-        {
-            "pic_name": "/Users/erika/aftertaste/data/picture/102.jpg",
-            "comment": "good"
-        },
-        {
-            "pic_name": "/Users/erika/aftertaste/data/picture/103.jpg",
-            "comment": "kugayama"
-        }
-    ]
-}
+[
+    {
+        "pic_name": "/Users/erika/aftertaste/data/picture/100.jpg",
+        "comment": "test"
+    },
+    {
+        "pic_name": "/Users/erika/aftertaste/data/picture/101.jpg",
+        "comment": "hello"
+    },
+    {
+        "pic_name": "/Users/erika/aftertaste/data/picture/102.jpg",
+        "comment": "good"
+    },
+    {
+        "pic_name": "/Users/erika/aftertaste/data/picture/103.jpg",
+        "comment": "kugayama"
+    }
+]

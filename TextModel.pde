@@ -12,8 +12,7 @@ public class TextModel {
 
     public ArrayList<String> acquireElement(String arrayName, String tag) {
         str = new ArrayList<String>();
-        json_object = loadJSONObject(filename);
-        json_array = json_object.getJSONArray(arrayName);
+        json_array = loadJSONArray(filename);
         for (int iter = 0; iter < json_array.size(); iter++) {
             small_JSONObject = json_array.getJSONObject(iter);
             json_text = small_JSONObject.getString(tag);

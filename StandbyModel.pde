@@ -32,7 +32,7 @@ public class StandbyModel {
     
     void setCard() {
         for (int i = 0; i < txt.getLength(); i++){
-            makeNewCard(txt.getEachString(i), image.getEachImage(int(random(image.getImageListLength()))));
+            makeNewCard(txt.getEachString(i), image.getEachImage(i));
         }
     }
 
