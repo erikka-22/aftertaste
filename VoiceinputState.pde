@@ -1,6 +1,6 @@
 class VoiceinputState extends State {
     PFont font;
-    
+    Controller controller = new Controller();
     ReceivedDataView view = new ReceivedDataView();
     DrawWave wave = new DrawWave();
     WebsocketServer wss = getWss();
@@ -27,7 +27,7 @@ class VoiceinputState extends State {
     ending phaseの描画
   **/
   void drawEndingPhase(){
-
+    controller.switch_to_registration_state();  
   }
 
   /**

@@ -13,12 +13,14 @@ class Controller{
     }
 
     void switch_to_voiceinput_state(){
+        contentModel.setEndingPhase(false);
         receivedDataModel.deleteData();
         wss.sendMessage("connected");
         contentModel.setState(new VoiceinputState());
     }
     
     void switch_to_registration_state(){
+        contentModel.setEndingPhase(false);
         wss.sendMessage("end");         
         contentModel.setState(new RegistrationState());
     }

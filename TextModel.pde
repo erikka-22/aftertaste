@@ -1,38 +1,28 @@
 public class TextModel {
     private ArrayList<String> str;
-    private String filename;
-    private JSONArray json;
+    private String filename, json_text;
+    private JSONArray json_array;
+    private JSONObject json_object, small_JSONObject;
     private String[] text;
+    
 
-
-    TextModel(String filename) {
-        this.filename = filename;   
+    TextModel(String file) {
+        this.filename = file;   
     }
 
-     public ArrayList<String> makeStringList(){  
-        json = new JSONArray();
+    public ArrayList<String> acquireElement(String arrayName, String tag) {
         str = new ArrayList<String>();
-        
-        json = loadJSONArray(filename);
-        for (int i = 0; i < json.size(); i++){
-            str.add(json.getString(i));
+        json_array = loadJSONArray(filename);
+        for (int iter = 0; iter < json_array.size(); iter++) {
+            small_JSONObject = json_array.getJSONObject(iter);
+            json_text = small_JSONObject.getString(tag);
+            str.add(json_text);
         }
-        // print(str);
         return str;
     }
 
-    public ArrayList<String> makeText(){  
-        // json = new JSONArray();
-        str = new ArrayList<String>();
-        text = loadStrings(filename);
-        for (int i = 0; i < text.length; i++){
-            str.add(text[i]);
-            // println(text[i]);
-        }
-        // print(str);
-        return str;
-    }
-
+   
+   
     public int getLength(){
         return str.size();
     }

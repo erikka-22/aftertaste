@@ -26,6 +26,10 @@ public class CardPositionModel {
         }    
     }
 
+    CardPositionModel getCardPositionModel() {
+        return this;
+    }
+
     
 
 }

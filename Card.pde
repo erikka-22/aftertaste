@@ -15,10 +15,11 @@ public class Card {
 
 
     public void displayText(float x, float y) {
+        push();
         fill(0);
         textAlign(LEFT, TOP);
-        text(text, x + 125, y + 20, width * 0.3, height * 0.35);
-        fill(255);
+        text(text, x + 175, y + 20, width * 0.25, height * 0.35);
+        pop();
     }
 
     public void displayRect(float x, float y) {

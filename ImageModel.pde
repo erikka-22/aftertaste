@@ -1,16 +1,20 @@
 private class ImageModel {
     ArrayList<PImage> imgList = new ArrayList<PImage>();
     PImage img;
-    ArrayList<String> str;
     TextModel imgFileName;
     ImageModel(String nameFileName) {
         Model contentModel = getContentModel();
         this.imgFileName = contentModel.getTextModel(nameFileName);
-        imgFileName.makeStringList();
+        // imgFileName.makeStringList();
+        imgFileName.acquireElement("comments", "pic_name");
     }
 
     public ArrayList<PImage> getImageList() {
         return imgList;
+    }
+
+    public int getImageListLength() {
+        return imgList.size();
     }
 
     public PImage getEachImage(int index) {
@@ -22,7 +26,6 @@ private class ImageModel {
             img = loadImage(imgFileName.getEachString(i));
             imgList.add(img);
         }
-        
     }
 
     

@@ -1,12 +1,10 @@
 class TitleState extends State {
   PFont font;
   Model contentModel = getContentModel();
-  
   TitleView view = new TitleView();
 
   TitleState(){
     font = createFont("HiraMaruProN-W4", 60);
-    
   }
   /**
     starting phaseの描画

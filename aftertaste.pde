@@ -1,10 +1,7 @@
 import websockets.*;
 import ddf.minim.*;
-/**
-* 環境変数
-*/
-
-// JSONObject json;
+import javax.swing.*;
+import java.awt.*;
 
 //ユーザ環境で使えるフォント一覧取得
 String[] fontList = PFont.list();
@@ -53,15 +50,15 @@ void keyPressed(){
   println("[LOG] Key Pressed " + keyCode + " \"" + char(keyCode) + "\"");
   contentModel.setKeyState(keyCode, true);
   switch (keyCode) {
-    case 99:
+    case 83:
       contentController.switch_to_drawing_phase();
       contentController.switch_to_standby_state();
       break;
-    case 103:
+    case 70:
       contentController.switch_to_drawing_phase();
       contentController.switch_to_voiceinput_state();
       break;
-    case 101:
+    case 72:
       contentController.switch_to_drawing_phase();
       contentController.switch_to_registration_state();
       break;
@@ -69,9 +66,9 @@ void keyPressed(){
     //   contentController.switch_to_drawing_phase();
     //   contentController.switch_to_exhiroom_state();
     //   break;  
-    // case 'y':
-    //   contentController.switch_to_ending_phase();
-    //   break;
+    case 65:
+      contentController.switch_to_ending_phase();
+      break;
   }
 }
 void keyReleased(){

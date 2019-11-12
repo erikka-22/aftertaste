@@ -4,18 +4,22 @@ public class Model {
     boolean DEBUG_MODE = false;
     boolean REPEATING_PHASE = false;
 
-
     private State state;
     //private Phase phase = new Phase();
     private KeyStatus keyStatus = new KeyStatus();
     private TextModel textModel;
     private ImageModel imageModel;
     private ReceivedDataModel receivedDataModel;
+    private UserIDModel userIDModel;
+    private CardPositionModel cardPositionModel;
+    private StandbyModel standbyModel;
+
 
     Model(){
         state = new TitleState();
         receivedDataModel = new ReceivedDataModel();
-
+        cardPositionModel = new CardPositionModel();
+        userIDModel = new UserIDModel();
     }
 
     //State
@@ -60,18 +64,30 @@ public class Model {
 
     public TextModel getTextModel(String filename) {
         textModel = new TextModel(filename);
-        return textModel ;
+        return textModel;
     }
 
     public ImageModel getImageModel(String filename) {
         imageModel = new ImageModel(filename);
-        return imageModel ;
+        return imageModel;
+    }
+
+    public StandbyModel getStandbyModel() {
+        standbyModel = new StandbyModel();
+        return standbyModel;
     }
 
     public ReceivedDataModel getReceivedDataModel() {
         return receivedDataModel.getReceivedDataModel();
     }
+
+    public UserIDModel getUserIDModel() {
+        return userIDModel.getUserIDModel();
+    }
     
+    public CardPositionModel getCardPositionModel() {
+        return cardPositionModel.getCardPositionModel();
+    }
     //デバッグモード
     public boolean getDebugMode(){
         return DEBUG_MODE;
