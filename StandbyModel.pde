@@ -4,14 +4,12 @@ public class StandbyModel {
     Model contentModel = getContentModel();
     WebsocketServer wss = getWss();
     int interval, lastRecordedTime;
-    TextModel txt = contentModel.getTextModel("test.json");
-    ImageModel image = contentModel.getImageModel("test.json");
+    JSONModel txt = contentModel.getJSONModel("test.json");
     boolean flag = false;
 
     StandbyModel() {
-        txt.acquireElement("comments", "comment");
-        // txt.getStringList();
-        image.makeImageList();   
+        // txt.acquireElement("comments", "comment");
+        // image.makeImageList();   
         iterator = cardbox.iterator(); 
         interval = 5000;
         lastRecordedTime = 0;  
@@ -26,13 +24,13 @@ public class StandbyModel {
         return cardbox.getLength();
     }
 
-    void makeNewCard(String text, PImage img){
-        cardbox.appendCard(new Card(text, img));
+    void makeNewCard(JSONObject card_content){
+        cardbox.appendCard(new Card(card_content));
     }
     
     void setCard() {
-        for (int i = 0; i < txt.getLength(); i++){
-            makeNewCard(txt.getEachString(i), image.getEachImage(i));
+        for (int i = 0; i < txt.getJSONArrayLength(); i++){
+            makeNewCard(txt.returnJSONObject(i));
         }
     }
 

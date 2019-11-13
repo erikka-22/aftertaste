@@ -41,6 +41,7 @@ class StandbyState extends State {
     cardArray = standbyModel.timeControl();
     for (int j = 0; j < cardArray.size(); j++) {
       card = cardArray.get(j);
+      // print(card.getThisCard());
       card.displayRect(position.getPosition(j).x, position.getPosition(j).y);
       card.displayImage(position.getPosition(j).x, position.getPosition(j).y);
       card.displayText(position.getPosition(j).x, position.getPosition(j).y);

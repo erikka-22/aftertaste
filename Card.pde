@@ -1,24 +1,25 @@
 public class Card {
-    CardPositionModel position = new CardPositionModel();
+    Model contentModel = getContentModel();
+    JSONModel textModel = contentModel.getJSONModel("test.json");
+    CardPositionModel position = contentModel.getCardPositionModel();
     String text;
     PImage img;
-    int i;
-    // float x, y;
+    JSONObject card_content;
     Rect rect = new Rect();
 
-    public Card(String text, PImage img) {
-        this.text = text;
-        this.img = img;
-        // this.x = position.getPosition(0).x;
-        // this.y = position.getPosition(0).y;
+    public Card(JSONObject card_content) {
+        this.card_content = card_content;
     }
 
+    public JSONObject getThisCard() {
+        return card_content;
+    }
 
     public void displayText(float x, float y) {
         push();
         fill(0);
         textAlign(LEFT, TOP);
-        text(text, x + 175, y + 20, width * 0.25, height * 0.35);
+        text(card_content.getString("comment"), x + 175, y + 20, width * 0.25, height * 0.35);
         pop();
     }
 
@@ -27,6 +28,6 @@ public class Card {
     }
 
     public void displayImage(float x, float y) {
-        image(img, x, y);
+        image(loadImage(card_content.getString("pic_name")), x, y);
     }
 }

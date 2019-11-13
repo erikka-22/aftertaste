@@ -7,7 +7,7 @@ public class Model {
     private State state;
     //private Phase phase = new Phase();
     private KeyStatus keyStatus = new KeyStatus();
-    private TextModel textModel;
+    private JSONModel textModel;
     private ImageModel imageModel;
     private ReceivedDataModel receivedDataModel;
     private UserIDModel userIDModel;
@@ -62,8 +62,8 @@ public class Model {
 
     // 子モデル
 
-    public TextModel getTextModel(String filename) {
-        textModel = new TextModel(filename);
+    public JSONModel getJSONModel(String filename) {
+        textModel = new JSONModel(filename);
         return textModel;
     }
 
@@ -108,4 +108,3 @@ public class Model {
     }
 
 }
-

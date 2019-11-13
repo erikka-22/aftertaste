@@ -2,6 +2,7 @@ public class CardboxIterator implements StandbyIterator {
     private Cardbox cardbox;
     private int index;
     private ArrayList<Card> cardArray = new ArrayList<Card>();
+    
     public CardboxIterator(Cardbox cardbox) {
         this.cardbox = cardbox;
         this.index = 4;
@@ -18,6 +19,7 @@ public class CardboxIterator implements StandbyIterator {
 
     public Object next() {
         Card card = cardbox.getCardAt(index);
+
         cardArray.add(0, card);
         if (cardArray.size() > 4) {
             cardArray.remove(cardArray.size() - 1);
