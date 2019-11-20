@@ -9,12 +9,15 @@ public class TitleView {
     }
 
     void circle(float x, int iro, float diameter) {
+        push();
         noStroke();
         fill(iro);
         ellipse(x, height * 0.61, diameter, diameter);
+        pop();
     }
 
     void drawTimeCapsule() {
+        push();
         noStroke();
         fill(150);
         ellipse(width / 2, height * 0.65, timecapsuleWidth, timecapsuleHeight);
@@ -29,8 +32,7 @@ public class TitleView {
         fill(30);
         textAlign(CENTER, CENTER);
         text("2019-????", width / 2, height * 0.42);
-
-                    
+        pop();
     }
 
 

@@ -1,31 +1,27 @@
 public class ExhibitLocationModel {
-    PVector[][] grid = new PVector[2][2];
-    PVector v1, v2, v3, v4;
-    
-    ExhibitLocationModel(float standard) {
-        PVector v1 = new PVector(width * 0.06, height * 0.1);
-        PVector v2 = new PVector(width * 0.55, height * 0.1);
-        PVector v3 = new PVector(width * 0.06, height * 0.55);
-        PVector v4 = new PVector(width * 0.55, height * 0.55);
-        PVector[][] grid = {{v1, v2}, {v3, v4}};
-        this.grid = grid;
+    float diameter = height / 2;
+    Model contentModel = getContentModel();
+    CSVModel csv = new CSVModel("exhibit_location.csv");
+    String[] csvLine = csv.getCSVDataLine();
+    PVector[] vectors;
+
+    ExhibitLocationModel() {
+        vectors = new PVector[csvLine.length];
+        for (int i = 1; i < csvLine.length; i++) {
+            vectors[i] = new PVector(diameter * float(csv.get_csvdata_cell(i, 2)), diameter * float(csv.get_csvdata_cell(i, 3)));
+            print(vectors[i]);
+        }
     }
 
-    PVector get_exhibit_location(int i) {
-        switch(i) {
-            case 0:
-                return grid[0][0];
-            case 1:
-                return grid[0][1];
-            case 2:
-                return grid[1][0];
-            case 3:
-                return grid[1][1];
-            default:
-                return grid[0][0];
-        }    
+    PVector get_exhibit_location(int pvector_order) {
+        return vectors[pvector_order];    
     }
 
-    CardPositionModel ExhibitLocationModel() {
+    int get_vector_list_length() {
+        return vectors.length;
+    }
+
+    ExhibitLocationModel getExhibitLocationModel() {
         return this;
     }
+}

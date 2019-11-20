@@ -1,9 +1,8 @@
 public class ExhibitionRoomView {
     
-    float diameter;
 
     ExhibitionRoomView() {
-        diameter = height / 2;
+        
     }
 
     void indicate_exhiroom_picture() {

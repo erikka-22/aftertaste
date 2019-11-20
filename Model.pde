@@ -8,11 +8,15 @@ public class Model {
     //private Phase phase = new Phase();
     private KeyStatus keyStatus = new KeyStatus();
     private JSONModel textModel;
-    private ImageModel imageModel;
+    private CSVModel csvModel;
     private ReceivedDataModel receivedDataModel;
     private UserIDModel userIDModel;
     private CardPositionModel cardPositionModel;
     private StandbyModel standbyModel;
+    private ExhibitLocationModel exhiModel;
+    private MousePushModel mousePushModel;
+    private ExhibitionButtonModel exhibitionButtonModel;
+    private JLayeredPaneModel jlayer;
 
 
     Model(){
@@ -20,12 +24,18 @@ public class Model {
         receivedDataModel = new ReceivedDataModel();
         cardPositionModel = new CardPositionModel();
         userIDModel = new UserIDModel();
+        mousePushModel = new MousePushModel();
+        csvModel = new CSVModel("exhibit_location.csv");
+        exhibitionButtonModel = new ExhibitionButtonModel();
+        exhiModel = new ExhibitLocationModel();
+        jlayer = new JLayeredPaneModel();
     }
 
     //State
     public State getState(){
         return state;
     }
+
     public void setState(State newState){
         state = newState;
     }
@@ -67,14 +77,17 @@ public class Model {
         return textModel;
     }
 
-    public ImageModel getImageModel(String filename) {
-        imageModel = new ImageModel(filename);
-        return imageModel;
+    public CSVModel getCSVModel(String filename) {
+        return csvModel.getCSVModel();
     }
 
     public StandbyModel getStandbyModel() {
         standbyModel = new StandbyModel();
         return standbyModel;
+    }
+
+    public ExhibitLocationModel getExhibitLocationModel() {
+        return exhiModel.getExhibitLocationModel();
     }
 
     public ReceivedDataModel getReceivedDataModel() {
@@ -88,6 +101,19 @@ public class Model {
     public CardPositionModel getCardPositionModel() {
         return cardPositionModel.getCardPositionModel();
     }
+
+    public MousePushModel getMousePushModel() {
+        return mousePushModel.getMousePushModel();
+    }
+
+    public ExhibitionButtonModel getExhibitionButtonModel() {
+        return exhibitionButtonModel.getExhibitionButtonModel();
+    }
+
+    public JLayeredPaneModel getJLayeredPaneModel() {
+        return jlayer.getJLayeredPaneModel();
+    }
+
     //デバッグモード
     public boolean getDebugMode(){
         return DEBUG_MODE;

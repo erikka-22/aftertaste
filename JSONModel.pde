@@ -42,7 +42,5 @@ public class JSONModel {
         return str.get(index);
     }
 
-    public get_csvdata_cell() {
-        
-    }
+    
 }

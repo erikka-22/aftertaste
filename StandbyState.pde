@@ -1,27 +1,22 @@
 class StandbyState extends State {
-  
-  JLayeredPane pane;
-  Canvas canvas;
-  JTextField field;
-
   Model contentModel = getContentModel();
   StandbyModel standbyModel = contentModel.getStandbyModel();
   CardPositionModel position = contentModel.getCardPositionModel();
   UserIDModel id = contentModel.getUserIDModel();
   Controller controller = new Controller();
-  
+  JLayeredPaneModel jlayer = contentModel.getJLayeredPaneModel();
+
+  JLayeredPane pane;
+  JTextField field;
+
   PFont font;
   ArrayList<Card> cardArray;
   int x, y;
   Card card;
 
-  float textbox_x = width * 0.06;
-  float textbox_y = height * 0.025;
-
-  StandbyState(){
-    canvas = (Canvas) surface.getNative();
-    pane = (JLayeredPane) canvas.getParent().getParent();
   
+  StandbyState(){
+    
     font = createFont("HiraMaruProN-W4", 30);
         
     background(200,200,200);
@@ -31,13 +26,18 @@ class StandbyState extends State {
     standbyModel.setCard();
     cardArray = standbyModel.firstCardSet();
 
+    pane = jlayer.getPane();
+
     // 1行のみのテキストボックスを作成
-    field = new JTextField();
-    field.setBounds(int(textbox_x), int(textbox_y), 100, 50);
+    field = jlayer.getTextfield();
     pane.add(field);
   }
   
-  void drawState() {  
+  void drawState() { 
+    push(); 
+    fill(0);
+    text("ID", jlayer.textbox_x - 30, jlayer.textbox_y + 15);
+    pop();
     cardArray = standbyModel.timeControl();
     for (int j = 0; j < cardArray.size(); j++) {
       card = cardArray.get(j);

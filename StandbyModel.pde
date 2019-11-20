@@ -6,6 +6,7 @@ public class StandbyModel {
     int interval, lastRecordedTime;
     JSONModel txt = contentModel.getJSONModel("test.json");
     boolean flag = false;
+    ExhibitionButtonModel exhi_button = contentModel.getExhibitionButtonModel();
 
     StandbyModel() {
         // txt.acquireElement("comments", "comment");
@@ -25,7 +26,18 @@ public class StandbyModel {
     }
 
     void makeNewCard(JSONObject card_content){
-        cardbox.appendCard(new Card(card_content));
+        switch(exhi_button.getSelectNow()) {
+            case 0:
+                cardbox.appendCard(new Card(card_content));
+                break;
+            default:
+                if (card_content.getInt("exhi_id") == exhi_button.getSelectNow()) {
+                    cardbox.appendCard(new Card(card_content));
+                }
+                break;
+        }
+        
+        
     }
     
     void setCard() {
