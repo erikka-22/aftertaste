@@ -8,8 +8,6 @@ class ExhibitionRoomState extends State {
    
     Button button;
     
-    float textbox_x = width * 0.06;
-    float textbox_y = height * 0.025;
    
     JLayeredPane pane;
     JTextField field;
@@ -29,19 +27,42 @@ class ExhibitionRoomState extends State {
     }
 
     void drawStartingPhase(){
-        print("start");
+        button_model.deleteSelectNow();
+        
+        controller.switch_to_drawing_phase();
     }
+
+    void drawState() {
+        exhi_view.indicate_exhiroom_picture();
+        push();
+        fill(0);
+        textSize(25);
+        text("ID", jlayer.textbox_x - 40, jlayer.textbox_y + 25);
+        pop();
+        for (int i = 0; i < button_model.button_list.size(); i++) {
+            button = button_model.getButton(i);
+            button.run();
+            if (button.checkInMouse() == true) {
+                // print("in a circle");
+                button_model.select_now = button.getExhibitionID();
+                // print(button_model.select_now);
+            }
+        }
+    }
+    
+
+   
   
     /**
         ending phaseの描画
     **/
     void drawEndingPhase(){
-        pane.remove(look);
-        pane.remove(speak);
-        pane.remove(field);
+        jlayer.removePane();
         if (speak.isSelected() == true) {
             id.setUserID(field.getText());
-            wss.sendMessage(str(button_model.getSelectNow()));
+            wss.sendMessage("z" + str(button_model.getSelectNow()));
+            print("*" + str(button_model.getSelectNow()));
+            delay(100);
             wss.sendMessage(id.getUserID());
             controller.switch_to_voiceinput_state();
         } else {
@@ -56,20 +77,9 @@ class ExhibitionRoomState extends State {
         print("repeat");
     }
 
-    void drawState() {
-        exhi_view.indicate_exhiroom_picture();
-        for (int i = 0; i < button_model.button_list.size(); i++) {
-            button = button_model.getButton(i);
-            button.run();
-            if (button.checkInMouse() == true) {
-                // print("in a circle");
-                button_model.select_now = button.getExhibitionID();
-                // print(button_model.select_now);
-            }
-        }
+    
         
         
-    }
     
     /**
         debug modeの場合の描画

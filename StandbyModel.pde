@@ -31,7 +31,7 @@ public class StandbyModel {
                 cardbox.appendCard(new Card(card_content));
                 break;
             default:
-                if (card_content.getInt("exhi_id") == exhi_button.getSelectNow()) {
+                if (int(card_content.getString("exhi_id")) == exhi_button.getSelectNow()) {
                     cardbox.appendCard(new Card(card_content));
                 }
                 break;

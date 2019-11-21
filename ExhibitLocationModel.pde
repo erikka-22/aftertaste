@@ -9,7 +9,7 @@ public class ExhibitLocationModel {
         vectors = new PVector[csvLine.length];
         for (int i = 1; i < csvLine.length; i++) {
             vectors[i] = new PVector(diameter * float(csv.get_csvdata_cell(i, 2)), diameter * float(csv.get_csvdata_cell(i, 3)));
-            print(vectors[i]);
+            // print(vectors[i]);
         }
     }
 

@@ -15,8 +15,7 @@ class StandbyState extends State {
   Card card;
 
   
-  StandbyState(){
-    
+  StandbyState(){ 
     font = createFont("HiraMaruProN-W4", 30);
         
     background(200,200,200);
@@ -33,6 +32,11 @@ class StandbyState extends State {
     pane.add(field);
   }
   
+  void drawStartingPhase(){
+    print(id.getUserID());
+    controller.switch_to_drawing_phase();
+  }
+
   void drawState() { 
     push(); 
     fill(0);
@@ -51,9 +55,7 @@ class StandbyState extends State {
   /**
     starting phaseの描画
   **/
-  void drawStartingPhase(){
-    
-  }
+  
   
   /**
     ending phaseの描画

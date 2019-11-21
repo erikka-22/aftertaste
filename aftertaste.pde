@@ -15,7 +15,7 @@ Button button;
 
 void setup() {
   // fullScreen();
-  size(1920, 1200);
+  size(1920, 1080);
 
   wss= new WebsocketServer(this, 5000, "/");
   

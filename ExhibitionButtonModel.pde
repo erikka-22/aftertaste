@@ -19,6 +19,10 @@ public class ExhibitionButtonModel {
         return select_now;
     }   
 
+    void deleteSelectNow() {
+        select_now = 0;
+    }
+
     ExhibitionButtonModel getExhibitionButtonModel() {
         return this;
     }

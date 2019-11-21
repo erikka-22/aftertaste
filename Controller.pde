@@ -8,7 +8,7 @@ class Controller{
     }
 
     void switch_to_standby_state(){ 
-        contentModel.setEndingPhase(false);
+        switch_to_starting_phase();
         mousePushModel.setMouseModelNumber(0);
         receivedDataModel.deleteData();
         contentModel.setState(new StandbyState());
@@ -30,7 +30,7 @@ class Controller{
     }
 
     void switch_to_exhiroom_state(){       
-        contentModel.setEndingPhase(false); 
+        switch_to_starting_phase();
         mousePushModel.setMouseModelNumber(1);
         contentModel.setState(new ExhibitionRoomState());
     }
