@@ -8,7 +8,6 @@ public class Model {
     //private Phase phase = new Phase();
     private KeyStatus keyStatus = new KeyStatus();
     private JSONModel textModel;
-    private CSVModel csvModel;
     private ReceivedDataModel receivedDataModel;
     private UserIDModel userIDModel;
     private CardPositionModel cardPositionModel;
@@ -25,7 +24,6 @@ public class Model {
         cardPositionModel = new CardPositionModel();
         userIDModel = new UserIDModel();
         mousePushModel = new MousePushModel();
-        csvModel = new CSVModel("exhibit_location.csv");
         exhibitionButtonModel = new ExhibitionButtonModel();
         exhiModel = new ExhibitLocationModel();
         jlayer = new JLayeredPaneModel();
@@ -75,10 +73,6 @@ public class Model {
     public JSONModel getJSONModel(String filename) {
         textModel = new JSONModel(filename);
         return textModel;
-    }
-
-    public CSVModel getCSVModel(String filename) {
-        return csvModel.getCSVModel();
     }
 
     public StandbyModel getStandbyModel() {
@@ -132,5 +126,6 @@ public class Model {
     public void setKeyState(int code, boolean state){
         keyStatus.setState(code, state);
     }
+    
 
 }

@@ -7,7 +7,7 @@ public class ExhibitionButtonModel {
 
     ExhibitionButtonModel() {
         for (int i = 1; i < exhi_model.get_vector_list_length(); i++) {
-            button_list.add(new Button(i, exhi_model.get_exhibit_location(i).x, exhi_model.get_exhibit_location(i).y, 30, 255));
+            button_list.add(new Button(i, exhi_model.get_exhibit_location(i).x, exhi_model.get_exhibit_location(i).y, 30, 30));
         }
     }
 

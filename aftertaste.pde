@@ -11,7 +11,6 @@ WebsocketServer wss;
 ReceivedDataModel receivedDataModel;
 MousePushModel mousePushModel;
 ExhibitionButtonModel buttonModel;
-Button button;
 
 void setup() {
   // fullScreen();
@@ -20,9 +19,10 @@ void setup() {
   wss= new WebsocketServer(this, 5000, "/");
   
   contentModel = new Model();
+  contentController = new Controller();
   contentModel.setState(new TitleState());
   // print(contentModel.getState());
-  contentController = new Controller();
+  
   receivedDataModel = contentModel.getReceivedDataModel();
   mousePushModel = contentModel.getMousePushModel();
   buttonModel = contentModel.getExhibitionButtonModel();
@@ -56,27 +56,26 @@ void keyPressed(){
   println("[LOG] Key Pressed " + keyCode + " \"" + char(keyCode) + "\"");
   contentModel.setKeyState(keyCode, true);
   switch (keyCode) {
-    case 83: //s
-      contentController.switch_to_drawing_phase();
-      contentController.switch_to_standby_state();
-      break;
-    case 70: //f
-      contentController.switch_to_drawing_phase();
-      contentController.switch_to_voiceinput_state();
-      break;
-    case 72: //h
-      contentController.switch_to_drawing_phase();
-      contentController.switch_to_registration_state();
-      break;
+    // case 83: //s
+    //   contentController.switch_to_standby_state();
+    //   break;
+    // case 70: //f
+    //   contentController.switch_to_drawing_phase();
+    //   contentController.switch_to_voiceinput_state();
+    //   break;
+    // case 72: //h
+    //   contentController.switch_to_drawing_phase();
+    //   contentController.switch_to_registration_state();
+    //   break;
     case 69: //e
-      contentController.switch_to_drawing_phase();
       contentController.switch_to_exhiroom_state();
       break;  
-    case 65: //a
+    case 107: //a
       contentController.switch_to_ending_phase();
       break;
-    case 81: //q
-      contentController.removeJLayeredPane();
+    case 109: //q
+      contentController.switch_to_repeating_phase();
+      break;
   }
 }
 void keyReleased(){

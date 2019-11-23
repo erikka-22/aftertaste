@@ -13,9 +13,13 @@ public class CSVModel {
     public String[] getCSVDataLine() {
         return csvDataLine;
     }
+
+    public int getColumnLength() {
+        return csvDataLine.length;
+    }
         
-    public String get_csvdata_cell(int row, int column) {
-        csvDataContent = new String[csvDataLine.length][4];
+    public String get_csvdata_cell(int columnSize, int row, int column) {
+        csvDataContent = new String[csvDataLine.length][columnSize];
         for (int i = 0; i < csvDataLine.length; i++) {
             csvDataCell = split(csvDataLine[i], ',');
             for (int j = 0; j < csvDataCell.length; j++) {

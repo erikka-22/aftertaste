@@ -1,7 +1,9 @@
 class VoiceinputState extends State {
     PFont font;
+    Model model = getContentModel();
     Controller controller = new Controller();
     ReceivedDataView view = new ReceivedDataView();
+    ReceivedDataModel r_model = model.getReceivedDataModel();
     DrawWave wave = new DrawWave();
     WebsocketServer wss = getWss();
 
@@ -12,7 +14,7 @@ class VoiceinputState extends State {
   void drawState() {
     background(255,255,255);
     wave.displayWave();
-    view.displayVoice(width * 0.2, 100);
+    view.displayVoice(width * 0.15, 100);
     
   }
 
@@ -20,13 +22,15 @@ class VoiceinputState extends State {
     starting phaseの描画
   **/
   void drawStartingPhase(){
-
+    wss.sendMessage("connected");
+    controller.switch_to_drawing_phase();
   }
   
   /**
     ending phaseの描画
   **/
   void drawEndingPhase(){
+    wss.sendMessage("end");  
     controller.switch_to_registration_state();  
   }
 
@@ -34,6 +38,8 @@ class VoiceinputState extends State {
     repeating phaseの描画
   **/
   void drawRepeatingPhase(){
-
+    r_model.deleteData();
+    wss.sendMessage("end");  
+    controller.switch_to_standby_state();
   }
 }

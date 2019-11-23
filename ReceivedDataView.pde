@@ -22,6 +22,8 @@ public class ReceivedDataView {
     }
 
     public void displayVoice(float startX, float startY) {
+        push();
+        textSize(30);
         fill(0);
         int lines = 0;
         int charPerLine = 0;
@@ -33,18 +35,17 @@ public class ReceivedDataView {
             pop();
         } else {
             for (int i = 0; i < receivedDataModel.getLength(); i++) {
-                if ((i - charPerLine + 1) * 40 > (width - startX)) {
+                if ((i - charPerLine + 1) * 40 > (width - startX * 2)) {
                     lines += 1;
                     charPerLine = i;
                 }      
                 text(receivedDataModel.getEachCharacter(i), (i - charPerLine) * 40 + startX, startY + lines * lineSpacing);
             }
         }
-        
+        pop();
     }
 
     // public void displayAlart() {
     //     text("あと15秒で話し終えてね！", );
     // }
 }
-

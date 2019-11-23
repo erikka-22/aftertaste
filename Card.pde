@@ -19,7 +19,7 @@ public class Card {
         push();
         fill(0);
         textAlign(LEFT, TOP);
-        text(card_content.getString("comment"), x + 175, y + 20, width * 0.25, height * 0.35);
+        text(card_content.getString("comment"), x + 210, y + 20, width * 0.29, height * 0.35);
         pop();
     }
 

@@ -15,21 +15,12 @@ public class Rect {
         push();
         fill(255);
         rectMode(CORNER);
+        noStroke();
         rect(x, y, rectWidth, rectHeight);
         pop();
     }
 
-    // public void red(float x, float y, float rectWidth, float rectHeight) {
-    //     fill(255,0,0);
-    //     rectMode(CORNER);
-    //     rect(x, y, rectWidth, rectHeight);
-    //     fill(255);
-    // }
+    
 
-    // public void red(float x, float y, float rectWidth, float rectHeight) {
-    //     fill(0,255,0);
-    //     rectMode(CORNER);
-    //     rect(x, y, rectWidth, rectHeight);
-    //     fill(255);
-    // }
+  
 }

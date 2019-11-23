@@ -1,9 +1,9 @@
 class TitleState extends State {
   PFont font;
   Model contentModel = getContentModel();
+  // Controller controller = new Controller();
   TitleView view = new TitleView();
-  Button button = new Button(0, width/2, height/2, 100, color(190, 100, 70));
-
+ 
   TitleState(){
     font = createFont("HiraMaruProN-W4", 60);
   }
@@ -11,6 +11,7 @@ class TitleState extends State {
     starting phaseの描画
   **/
   void drawStartingPhase(){
+    // controller.switch_to_drawing_phase();
     print("start");
   }
   
@@ -18,14 +19,14 @@ class TitleState extends State {
     ending phaseの描画
   **/
   void drawEndingPhase(){
-    print("end");
+    // controller.switch_to_exhiroom_state();
   }
 
   /**
     repeating phaseの描画
   **/
   void drawRepeatingPhase(){
-    print("repeat");
+    // controller.switch_to_title_state();
   }
 
   void drawState() {
@@ -38,18 +39,7 @@ class TitleState extends State {
     text("デジタル タイム カプセル", width/2, height * 0.15);
     pop();
     view.drawTimeCapsule();
-    // button.run();
-    // switch(button.rogic()) {
-    //   case 0:
-    //     break;
-    //   case 1:
-    //     print("button on");
-    //     break;
-    //   case 2:
-    //     if (button.isPush()) {
-    //       print("button pushed");
-    //     }
-    // }
+    
   }
   
   /**

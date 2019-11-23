@@ -26,6 +26,7 @@ public class JLayeredPaneModel {
     }
 
     JTextField getTextfield() {
+        print(field);
         return field;
     }
 

@@ -1,7 +1,9 @@
 public class ExhibitionRoomView {
-    
+    int interval, lastRecordedTime;
 
     ExhibitionRoomView() {
+        interval = 5000;
+        lastRecordedTime = 0;
         
     }
 
@@ -19,5 +21,12 @@ public class ExhibitionRoomView {
         strokeWeight(30);
         point(x, y);
         pop();
+    }
+
+    void timeControl() {
+        if (millis() - lastRecordedTime > interval) {
+            lastRecordedTime = millis();
+            wss.sendMessage("");
+        }
     }
 }

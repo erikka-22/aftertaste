@@ -8,10 +8,15 @@ class RegistrationState extends State {
     Rect rect = new Rect();
     Controller controller = new Controller();
     WebsocketServer wss = getWss();
+    UserIDModel id = contentModel.getUserIDModel();
 
     RegistrationState(){
         font = createFont("HiraMaruProN-W4", 30);
-        img = loadImage("black.png");
+        if (id.getUserID().equals("") == true) {
+            img = loadImage("/Users/erika/aftertaste/data/picture/anonymous.png");
+        } else {
+            img = loadImage("/Users/erika/aftertaste/data/picture/" + id.getUserID() + ".png");
+        }
     }
 
     void drawState() {
@@ -34,7 +39,7 @@ class RegistrationState extends State {
     starting phaseの描画
     **/
     void drawStartingPhase(){
-        
+        controller.switch_to_drawing_phase();
     }
     
     /**
@@ -51,6 +56,7 @@ class RegistrationState extends State {
     **/
     void drawRepeatingPhase(){
         receivedDataModel.deleteData();
+        controller.switch_to_standby_state();
     }
 
 }

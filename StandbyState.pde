@@ -5,6 +5,8 @@ class StandbyState extends State {
   UserIDModel id = contentModel.getUserIDModel();
   Controller controller = new Controller();
   JLayeredPaneModel jlayer = contentModel.getJLayeredPaneModel();
+  CSVModel csv = new CSVModel("exhibit_location.csv");
+  ExhibitionButtonModel button_model = contentModel.getExhibitionButtonModel();
 
   JLayeredPane pane;
   JTextField field;
@@ -23,24 +25,32 @@ class StandbyState extends State {
     textFont(font);
 
     standbyModel.setCard();
-    cardArray = standbyModel.firstCardSet();
+    // cardArray = standbyModel.firstCardSet();
 
     pane = jlayer.getPane();
-
+    
     // 1行のみのテキストボックスを作成
     field = jlayer.getTextfield();
     pane.add(field);
+    print();
   }
   
   void drawStartingPhase(){
-    print(id.getUserID());
+    // print(id.getUserID());
     controller.switch_to_drawing_phase();
   }
 
   void drawState() { 
+    
     push(); 
     fill(0);
     text("ID", jlayer.textbox_x - 30, jlayer.textbox_y + 15);
+    textAlign(CENTER);
+    if (button_model.getSelectNow() != 0 && button_model.getSelectNow() != 28) {
+      text(csv.get_csvdata_cell(4, button_model.getSelectNow(), 1), width * 0.5, height * 0.05);  
+    } else {
+      text("全ての展示物について", width * 0.5, height * 0.05);
+    }
     pop();
     cardArray = standbyModel.timeControl();
     for (int j = 0; j < cardArray.size(); j++) {
@@ -61,6 +71,7 @@ class StandbyState extends State {
     ending phaseの描画
   **/
   void drawEndingPhase(){
+    wss.sendMessage("z" + str(button_model.getSelectNow()));
     id.setUserID(field.getText());
     wss.sendMessage(id.getUserID());
     pane.remove(field);
@@ -72,7 +83,8 @@ class StandbyState extends State {
     repeating phaseの描画
   **/
   void drawRepeatingPhase(){
-
+    pane.remove(field);
+    controller.switch_to_exhiroom_state();
   }
 
   /**

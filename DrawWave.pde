@@ -5,17 +5,17 @@ public class DrawWave {
 
     DrawWave() {
         minim = new Minim(getPApplet());
-        in = minim.getLineIn(Minim.MONO, 900);
+        in = minim.getLineIn(Minim.MONO, 512);
     }
 
     public void displayWave() {
         push();
         stroke(0, 0, 0);
         strokeWeight(4);
-        for (int i = 0; i < in.bufferSize() * 2 / 3 ; i++) {
+        for (int i = 0; i < in.bufferSize() ; i++) {
             push();
             stroke(0);
-            point(width * 0.025 + i * 2, height * 0.8 + in.left.get(i) * waveH);
+            point(width * 0.15 + i * 2.5, height * 0.8 + in.left.get(i) * waveH);
             pop();
         }
         pop();

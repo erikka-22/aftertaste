@@ -9,8 +9,6 @@ public class StandbyModel {
     ExhibitionButtonModel exhi_button = contentModel.getExhibitionButtonModel();
 
     StandbyModel() {
-        // txt.acquireElement("comments", "comment");
-        // image.makeImageList();   
         iterator = cardbox.iterator(); 
         interval = 5000;
         lastRecordedTime = 0;  

@@ -10,23 +10,30 @@ class Controller{
     void switch_to_standby_state(){ 
         switch_to_starting_phase();
         mousePushModel.setMouseModelNumber(0);
-        receivedDataModel.deleteData();
+        
         contentModel.setState(new StandbyState());
     }
 
     void switch_to_voiceinput_state(){
-        contentModel.setEndingPhase(false);
+        switch_to_starting_phase();
         mousePushModel.setMouseModelNumber(0);
         receivedDataModel.deleteData();
-        wss.sendMessage("connected");
+        
         contentModel.setState(new VoiceinputState());
     }
     
     void switch_to_registration_state(){
-        contentModel.setEndingPhase(false);
+        switch_to_starting_phase();
         mousePushModel.setMouseModelNumber(0);
-        wss.sendMessage("end");         
+               
         contentModel.setState(new RegistrationState());
+    }
+
+    void switch_to_title_state(){
+        switch_to_starting_phase();
+        mousePushModel.setMouseModelNumber(0);
+               
+        contentModel.setState(new TitleState());
     }
 
     void switch_to_exhiroom_state(){       
